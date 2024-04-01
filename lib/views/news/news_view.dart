@@ -3,12 +3,12 @@ import 'package:news_c10_str/views/news/widgets/news_view_body.dart';
 import 'package:news_c10_str/shared/network/remote/api_manager.dart';
 import 'package:news_c10_str/widgets/custom_appbar.dart';
 import 'package:news_c10_str/widgets/custom_drawer.dart';
-import 'package:news_c10_str/widgets/search_appbar.dart';
 
 class NewsView extends StatefulWidget {
-  final String categoryId;
+  static const String routeName = 'NewsView';
+  final String? categoryId;
 
-  const NewsView({required this.categoryId, super.key});
+  const NewsView({this.categoryId, super.key});
 
   @override
   State<NewsView> createState() => _NewsViewState();
@@ -31,13 +31,11 @@ class _NewsViewState extends State<NewsView> {
       key: _key,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
-        child: _searchSelected
-            ? defaultBar(context, appBarChange, _key)
-            : editingBar(context, appBarChange),
+        child: defaultBar(context, _key),
       ),
       drawer: const CustomDrawer(),
       body: FutureBuilder(
-        future: ApiManager.getSources(widget.categoryId),
+        future: ApiManager.getSources(widget.categoryId ?? ''),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());

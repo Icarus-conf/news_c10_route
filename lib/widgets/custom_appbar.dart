@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:news_c10_str/views/search/search_view.dart';
 
-Widget defaultBar(BuildContext context, Function() changeAppBar,
-    GlobalKey<ScaffoldState> globalKey) {
+Widget defaultBar(BuildContext context, GlobalKey<ScaffoldState> globalKey) {
   return AppBar(
     iconTheme: const IconThemeData(color: Colors.white),
     backgroundColor: Colors.green,
@@ -14,7 +14,9 @@ Widget defaultBar(BuildContext context, Function() changeAppBar,
     ),
     actions: [
       GestureDetector(
-        onTap: changeAppBar,
+        onTap: () {
+          Navigator.pushNamed(context, SearchView.routeName);
+        },
         child: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 12.0),
           child: Icon(

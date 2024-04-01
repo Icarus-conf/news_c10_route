@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget editingBar(
   BuildContext context,
-  Function() changeAppBar,
+  Function() onTap,
 ) {
   return AppBar(
     iconTheme: const IconThemeData(color: Colors.white),
@@ -12,11 +12,12 @@ Widget editingBar(
     title: TextField(
       decoration: InputDecoration(
         prefixIcon: IconButton(
-            onPressed: changeAppBar,
-            icon: const Icon(
-              Icons.close,
-              color: Colors.green,
-            )),
+          onPressed: onTap,
+          icon: const Icon(
+            Icons.close,
+            color: Colors.green,
+          ),
+        ),
         suffixIcon: IconButton(
           onPressed: () {},
           icon: const Icon(
