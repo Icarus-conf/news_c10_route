@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:news_c10_str/models/article_model.dart';
 
 import 'package:news_c10_str/shared/components/constants.dart';
 import 'package:news_c10_str/views/search/manger/models/search_model.dart';

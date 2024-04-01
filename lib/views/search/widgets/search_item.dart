@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:news_c10_str/views/search/manger/models/search_model.dart';
+import 'package:news_c10_str/models/article_model.dart';
 
 class SearchItem extends StatelessWidget {
   final Articles article;

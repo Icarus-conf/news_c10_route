@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_c10_str/views/detail_view/article_detail_view.dart';
 import 'package:news_c10_str/views/search/manger/search_cubit/search_news_cubit.dart';
 import 'package:news_c10_str/views/search/widgets/search_item.dart';
 
@@ -83,8 +84,17 @@ class SearchView extends StatelessWidget {
                   child: ListView.builder(
                       itemCount: articles.length,
                       itemBuilder: (context, index) {
-                        return SearchItem(
-                          article: articles[index],
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.popAndPushNamed(
+                              context,
+                              ArticleDetailView.routeName,
+                              arguments: articles[index],
+                            );
+                          },
+                          child: SearchItem(
+                            article: articles[index],
+                          ),
                         );
                       }),
                 )

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_c10_str/models/source_reposne.dart';
+import 'package:news_c10_str/views/detail_view/article_detail_view.dart';
 import 'package:news_c10_str/views/news/widgets/news_item.dart';
 import 'package:news_c10_str/views/news/widgets/source_item.dart';
 import 'package:news_c10_str/shared/network/remote/api_manager.dart';
@@ -66,9 +67,18 @@ class _NewsTabState extends State<NewsTab> {
                   height: 12,
                 ),
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: NewsItem(article: articlesList[index]),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.popAndPushNamed(
+                        context,
+                        ArticleDetailView.routeName,
+                        arguments: articlesList[index],
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: NewsItem(article: articlesList[index]),
+                    ),
                   );
                 },
                 itemCount: articlesList.length,
